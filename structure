@@ -1,0 +1,59 @@
+CLTV_Prediction_Project/
+├── analysis/                       # Exploratory Data Analysis (EDA) and insights
+│   ├── eda.ipynb                   # Jupyter notebook for EDA
+│   └── feature_analysis.py         # Script for analyzing features related to CLTV, churn, etc.
+├── data/                           # Data storage
+│   ├── raw/                        # Raw, unprocessed datasets
+│   ├── processed/                  # Cleaned and transformed datasets
+│   └── extracted_data/             # Intermediate datasets from feature extraction
+├── explanations/                   # Documentation and methodology
+│   ├── methodology.md              # Project methodology, approach, and project roadmap
+│   ├── model_selection.md          # Documentation on model selection and rationale
+│   └── assumptions.md              # Assumptions and considerations
+├── mlruns/                         # MLflow tracking data (if using MLflow)
+├── pipelines/                      # Pipeline scripts for training and deployment
+│   ├── training_pipeline.py        # Training pipeline orchestration
+│   └── deployment_pipeline.py      # Deployment pipeline orchestration
+├── src/                            # Core source code for data processing and modeling
+│   ├── data_preprocessing/
+│   │   ├── data_splitter.py        # Logic for data splitting
+│   │   ├── handle_missing_values.py # Handle missing data
+│   │   └── outlier_detection.py    # Detect and handle outliers
+│   ├── feature_engineering/
+│   │   ├── feature_engineering.py  # Feature transformations for CLTV, churn, fraud, etc.
+│   │   └── feature_scaling.py      # Scaling and normalization of features
+│   ├── model_building/
+│   │   ├── cltv_model.py           # CLTV prediction model training and tuning
+│   │   ├── churn_model.py          # Churn prediction model training and tuning
+│   │   └── fraud_detection_model.py # Fraud detection model training and tuning
+│   ├── model_evaluation/
+│   │   ├── evaluator.py            # Evaluate model performance for each model
+│   │   └── metrics_logger.py       # Log metrics to MLflow or Google Cloud Monitoring
+│   └── ingest_data.py              # Data ingestion from multiple sources (e.g., APIs, databases)
+├── steps/                          # Individual steps for pipeline stages
+│   ├── data_ingestion_step.py      # Step for ingesting data into the pipeline
+│   ├── data_preprocessing_step.py  # Step for data cleaning, outlier handling, etc.
+│   ├── feature_engineering_step.py # Step for feature engineering
+│   ├── model_training_steps/
+│   │   ├── cltv_model_step.py      # Step for training CLTV prediction model
+│   │   ├── churn_model_step.py     # Step for training churn prediction model
+│   │   └── fraud_detection_step.py # Step for training fraud detection model
+│   ├── model_evaluator_step.py     # Step for evaluating models
+│   ├── model_loader.py             # Loads the model for real-time inference
+│   └── predictor.py                # Generates predictions based on the deployed model
+├── deployment/                     # Files for deploying on GCP (Google Cloud Platform)
+│   ├── Dockerfile                  # Docker configuration for containerizing the application
+│   ├── cloud_run_deployment.yaml   # Configuration for GCP Cloud Run deployment
+│   ├── vertex_ai_pipeline.py       # Vertex AI pipeline configuration for orchestration
+│   └── requirements.txt            # GCP-specific dependencies
+├── tests/                          # Unit and integration tests for each component
+│   ├── test_data_ingestion.py      # Tests for data ingestion module
+│   ├── test_feature_engineering.py # Tests for feature engineering module
+│   ├── test_cltv_model.py          # Tests for CLTV prediction model
+│   └── test_predictor.py           # Tests for inference/predictions
+├── config.yaml                     # Configuration file for global settings
+├── requirements.txt                # Python dependencies for the project
+├── run_pipeline.py                 # Script to trigger the training pipeline locally
+├── run_deployment.py               # Script to trigger deployment on GCP
+├── sample_predict.py               # Example script for testing predictions
+└── README.md                       # Project overview and setup instructions
