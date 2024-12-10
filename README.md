@@ -79,7 +79,7 @@ But before that we have to run the following command to start the model training
 ```bash
 python run_pipeline.py
 ```
-As we run the python command we can see the model building process has started and different steps of the pipeline are being executed one after another from ingesting the data to feature engineering to spliting the data and then finally training the XGboost Regressor Model. 
+As we run the python command we can see the model building process has started and different steps of the pipeline are being executed one after another from ingesting the data to feature engineering to spliting the data and then finally training the XGboost Regressor Model wrapped within a Scikit-Learn Pipeline along with numeric preprocessors. 
 
 ![Training Pipeline Overview](img/training_pipeline.png)
 *Figure 1: ZenML Training Pipeline Visualization*
