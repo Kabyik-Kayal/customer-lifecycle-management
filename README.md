@@ -98,7 +98,7 @@ python run_deployment.py
 ```
 
 ![Deployment Pipeline Overview](img/deployment.png)
-*Figure 2: Zenml Deployment Pipeline Visualization*
+*Figure 3: Zenml Deployment Pipeline Visualization*
 
 ## Prediction
 
