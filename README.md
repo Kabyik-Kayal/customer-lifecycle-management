@@ -15,7 +15,7 @@ Atlast we have used a Flask app to create an UI and predict CLTV of a customer b
 
 Kindly clone this repository by using the following bash commands:
 ``` bash
-
+git clone https://github.com/Kabyik-Kayal/Customer-Lifetime-Value-Prediction-MLOps.git
 ```
 
 ## Setup
