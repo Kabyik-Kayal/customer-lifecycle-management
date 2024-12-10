@@ -1,0 +1,6 @@
+artifact_location: file:///home/kabyik/Desktop/customer-lifecycle-management/mlruns/705414353012867274
+creation_time: 1733586618804
+experiment_id: '705414353012867274'
+last_update_time: 1733586618804
+lifecycle_stage: active
+name: CLTV_Prediction_Models

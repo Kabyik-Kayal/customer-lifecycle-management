@@ -1,0 +1,15 @@
+artifact_uri: file:///home/kabyik/Desktop/customer-lifecycle-management/mlruns/705414353012867274/1ebd501cdc244b41adfcf4325f4c5ece/artifacts
+end_time: 1733586624158
+entry_point_name: ''
+experiment_id: '705414353012867274'
+lifecycle_stage: active
+run_id: 1ebd501cdc244b41adfcf4325f4c5ece
+run_name: dapper-moose-262
+run_uuid: 1ebd501cdc244b41adfcf4325f4c5ece
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733586623070
+status: 3
+tags: []
+user_id: kabyik

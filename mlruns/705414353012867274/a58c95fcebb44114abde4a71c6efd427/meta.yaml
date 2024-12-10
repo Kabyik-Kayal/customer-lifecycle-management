@@ -1,0 +1,15 @@
+artifact_uri: file:///home/kabyik/Desktop/customer-lifecycle-management/mlruns/705414353012867274/a58c95fcebb44114abde4a71c6efd427/artifacts
+end_time: 1733586623069
+entry_point_name: ''
+experiment_id: '705414353012867274'
+lifecycle_stage: active
+run_id: a58c95fcebb44114abde4a71c6efd427
+run_name: XGBRegressor_Training
+run_uuid: a58c95fcebb44114abde4a71c6efd427
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733586618958
+status: 3
+tags: []
+user_id: kabyik
