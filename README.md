@@ -16,11 +16,18 @@ This project implements a robust machine learning pipeline for predicting **Cust
 
 To get started, ensure you have the following installed:
 
+<<<<<<< HEAD
 - **Python 3.10**
 - **ZenML**
 - **MLflow**
 
 ---
+=======
+Kindly clone this repository by using the following bash commands:
+``` bash
+git clone https://github.com/Kabyik-Kayal/Customer-Lifetime-Value-Prediction-MLOps.git
+```
+>>>>>>> d4226cf56b4ebf561adaf8162ee74518b544fb09
 
 ## Repository Structure
 
@@ -159,6 +166,10 @@ To run the training pipeline:
 ```bash
 python run_pipeline.py
 ```
+<<<<<<< HEAD
+=======
+As we run the python command we can see the model building process has started and different steps of the pipeline are being executed one after another from ingesting the data to feature engineering to spliting the data and then finally training the XGboost Regressor Model wrapped within a Scikit-Learn Pipeline along with numeric preprocessors. 
+>>>>>>> d4226cf56b4ebf561adaf8162ee74518b544fb09
 
 Once executed, the pipeline steps will be displayed in the ZenML dashboard:
 
@@ -186,6 +197,7 @@ To deploy the latest trained model using the MLflow model deployer, run the depl
 python run_deployment.py
 ```
 
+<<<<<<< HEAD
 This will initiate the deployment pipeline, as visualized below:
 
 ![ZenML Deployment Pipeline](img/deployment_pipeline.png)
@@ -193,6 +205,10 @@ This will initiate the deployment pipeline, as visualized below:
 > **Figure 3:** ZenML Deployment Pipeline Visualization
 
 ---
+=======
+![Deployment Pipeline Overview](img/deployment.png)
+*Figure 3: Zenml Deployment Pipeline Visualization*
+>>>>>>> d4226cf56b4ebf561adaf8162ee74518b544fb09
 
 ## Prediction
 
@@ -201,6 +217,7 @@ The project includes a Flask-based UI for predicting CLTV. Launch the Flask app:
 ```bash
 python app.py
 ```
+<<<<<<< HEAD
 
 Input customer data through the UI to get predictions for their lifetime value.
 
@@ -221,3 +238,5 @@ Input customer data through the UI to get predictions for their lifetime value.
 For any issues or contributions, feel free to open an issue or submit a pull request. Thank you for exploring the **Customer Lifetime Value Prediction MLOps Project**!
 
 This project is licensed under the MIT License.
+=======
+>>>>>>> d4226cf56b4ebf561adaf8162ee74518b544fb09
