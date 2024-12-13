@@ -204,7 +204,7 @@ python app.py
 
 Input customer data through the UI to get predictions for their lifetime value.
 
-![Flask UI Example](img/Flask_ui.png)
+![Flask UI Example](img/Flask_UI.png)
 
 > **Figure 4:** Flask Application for CLTV Prediction
 
