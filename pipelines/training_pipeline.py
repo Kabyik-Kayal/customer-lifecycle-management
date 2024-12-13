@@ -9,6 +9,7 @@ from steps.feature_engineering_step import feature_engineering_step
 from steps.data_splitting_step import data_splitting_step
 from steps.model_building_step import model_building_step
 from steps.model_evaluating_step import model_evaluating_step
+from steps.data_resampling_step import data_resampling_step
 from zenml import Model, pipeline
 
 
@@ -23,8 +24,9 @@ def training_pipeline():
     4. Detecting and handling outliers
     5. Feature engineering
     6. Splitting data into train and test sets
-    7. Model training
-    8. Model evaluation
+    7. Resampling the training data
+    8. Model training
+    9. Model evaluation
     """
     # Step 1: Data ingestion
     raw_data = data_ingestion_step(file_path='data/Online_Retail.xlsx')
@@ -45,13 +47,16 @@ def training_pipeline():
     # Step 6: Data splitting
     train_features, test_features, train_target, test_target = data_splitting_step(cleaned_data,"CLTV")
 
-    # Step 7: Model training
-    trained_model = model_building_step(train_features, train_target)
+    # Step 7: Data resampling
+    train_features_resampled, train_target_resampled = data_resampling_step(train_features, train_target)
 
-    # Step 8: Model evaluation
+    # Step 8: Model training
+    trained_model = model_building_step(train_features_resampled, train_target_resampled)
+
+    # Step 9: Model evaluation
     evaluation_metrics = model_evaluating_step(trained_model, test_features, test_target)
 
-    # Return both model and evaluation metrics
+    # Return evaluation metrics
     return evaluation_metrics
 
 

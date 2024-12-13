@@ -103,6 +103,6 @@ if __name__ == "__main__":
 
     # print(df_cleaned.shape)
     # # Visualize outliers in specific features
-    # # outlier_detector.visualize_outliers(df_cleaned, features=["SalePrice", "Gr Liv Area"])
+    # # outlier_detector.visualize_outliers(df_cleaned, features=["feature1", "feature2"])
     pass
 

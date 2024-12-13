@@ -33,7 +33,7 @@ else:
 model = Model(
     name="CLTV_Prediction",
     version=None,
-    license="Apache 2.0",
+    license="MIT",
     description="A model to predict customer lifetime value (CLTV) using RF, XGBoost, or LightGBM.",
 )
 
@@ -70,8 +70,8 @@ def model_building_step(
     # Define parameter grids for fine-tuning
     param_grids = {
         "random_forest": {"model__n_estimators": [50, 100, 200], "model__max_depth": [None, 10, 20]},
-        "xgboost": {"model__n_estimators": [100, 200], "model__max_depth": [3, 5, 7], "model__learning_rate": [0.01, 0.1, 0.2]},
-        "lightgbm": {"model__num_leaves": [31, 50, 70], "model__learning_rate": [0.01, 0.1, 0.2]},
+        "xgboost": {'n_estimators': [100, 200, 300, 500],'learning_rate': [0.01, 0.05, 0.1, 0.2],'max_depth': [3, 5, 7, 9],'min_child_weight': [1, 3, 5, 7],'subsample': [0.6, 0.8, 1.0],'colsample_bytree': [0.6, 0.8, 1.0],'gamma': [0, 0.1, 0.3, 0.5],'reg_alpha': [0, 0.1, 1, 10],'reg_lambda': [1, 5, 10, 20]},
+        "lightgbm": {'model__num_leaves': [31, 50, 70], 'model__learning_rate': [0.01, 0.1, 0.2]},
     }
 
     # Model mapping

@@ -1,58 +1,102 @@
 # Customer Lifetime Value Prediction MLOps Project
 
 ## Overview
-This project implements a machine learning pipeline for customer lifetime prediction using ZenML. It focuses on predicting the lifetime value throughout their journey with the organization by the help of an XGBoost Regressor model. The dataset (Online_Retail.xlsx) is taken from the UCI Machine Learning Repository for this project.
-We have performed some EDA on the dataset which is available in the data_analysis folder, and concluded to drop some features and missing values.
-We have implemented zenml steps inside the zenml pipeline for training and deployment. We have actively used Mlflow for experiment tracking and deployment.
-Atlast we have used a Flask app to create an UI and predict CLTV of a customer by inputing value.
+This project implements a robust machine learning pipeline for predicting **Customer Lifetime Value (CLTV)** using ZenML. The goal is to estimate the long-term value of customers during their journey with the organization. The pipeline employs an **XGBoost Regressor** model, leveraging data from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). Key features of the project include:
+
+- **Exploratory Data Analysis (EDA):** Conducted detailed EDA (available in the `data_analysis` folder), including feature selection and handling missing values.
+- **Pipeline Automation:** Designed a ZenML pipeline with modular steps for training and deployment.
+- **Experiment Tracking and Deployment:** Integrated **MLflow** for seamless experiment tracking and model deployment.
+- **User Interface:** Developed a Flask application for interactive CLTV predictions.
+
+![ZenML Logo](https://zenml.io/images/zenml_logo_dark.svg)
+
+---
 
 ## Prerequisites
-- Python 3.10
-- ZenML
-- MLflow
 
-## Clone the repository
+To get started, ensure you have the following installed:
 
-Kindly clone this repository by using the following bash commands:
-``` bash
+- **Python 3.10**
+- **ZenML**
+- **MLflow**
 
-```
+---
 
-## Setup
-Follow the commands in the setup script below to configure your environment.
+## Repository Structure
 
-## set and activate your python environment
+Here is a brief overview of the repository's contents:
+
+- **`.vscode/`**: Contains workspace configurations.
+- **`.zen/`**: ZenML configuration and metadata.
+- **`data/`**: Includes raw data files.
+- **`data_analysis/`**: Scripts and notebooks for exploratory data analysis.
+- **`img/`**: Visual assets for the README or other documentation.
+- **`materializer/`**: Custom materializers for ZenML pipelines.
+- **`models/`**: Saved models for deployment.
+- **`pipelines/`**: Pipeline definitions for ZenML.
+- **`src/`**: Core source code.
+- **`steps/`**: Modular ZenML steps for the pipeline.
+- **`templates/`**: HTML templates for the Flask app.
+- **`app.py`**: Flask application for user interaction.
+- **`mlflow.db`**: MLflow database for tracking experiments.
+- **`requirements.txt`**: Python dependencies.
+- **`run_deployment.py`**: Script to trigger deployment pipelines.
+- **`run_pipeline.py`**: Script to trigger training pipelines.
+
+---
+
+## Setup Instructions
+
+### Clone the Repository
+
+Clone this repository using the following command:
 
 ```bash
-python3.10 -m myenv venv
-source venv/bin/activate
+git clone https://github.com/Kabyik-Kayal/Customer-Lifetime-Value-Prediction-MLOps.git
 ```
 
-## Install the requirements 
-```bash
-pip install -r requirements.txt
-pip install zenml["server"]
-```
-## Run Zenml Dashboard
+### Environment Configuration
 
-Use the following command to run the zenml dashboard to keep track of your pipelines and model building steps :
+1. **Set up and activate your Python environment:**
+
+    ```bash
+    python3.10 -m venv myenv
+    source myenv/bin/activate
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    pip install zenml["server"]
+    ```
+
+---
+
+## ZenML Dashboard
+
+To monitor pipelines and manage model-building steps, launch the ZenML dashboard:
 
 ```bash
 zenml up
 ```
-After using the above command a zenml dashboard will open, login with the default user and without any password and follow the next steps.
 
-## Zenml stack setup
-The project uses a local stack configuration with the following components:
-- Local orchestrator
-- Local artifact store
-- MLflow experiment tracker
-- MLflow model deployer
+Log in with the default user credentials (no password required) and proceed to the next steps.
 
-Register zenml components and set the stack by using the following commands:
+---
+
+## ZenML Stack Setup
+
+This project uses a local stack with the following components:
+
+- **Local orchestrator**
+- **Local artifact store**
+- **MLflow experiment tracker**
+- **MLflow model deployer**
+
+Register and configure the stack using these commands:
 
 ```bash
-
 zenml orchestrator register local_orchestrator --flavor=local
 zenml artifact-store register local_artifact_store --flavor=local
 zenml experiment-tracker register mlflow_tracker --flavor=mlflow
@@ -66,45 +110,114 @@ zenml stack register local_stack \
 
 zenml stack set local_stack
 ```
-To check if the stack is successfully set run this command:
+
+Verify the setup:
+
 ```bash
 zenml stack list
 ```
-## Model Building
 
-We have used zenml steps to organise the model building steps in a zenml pipeline which can be viewed in the zenml dashboard as the diagram below shows.
+---
 
-But before that we have to run the following command to start the model training pipeline:
+## Model Building Pipeline
+
+The training pipeline in this project follows a structured, modular approach. Below are the detailed steps:
+
+1. **Data Ingestion:**
+   - Extract raw data from the source (Online Retail dataset).
+   - Load data into a structured format for preprocessing.
+
+2. **Handling Missing Values:**
+   - Identify and fill or remove missing entries to ensure data consistency.
+
+3. **Dropping Unnecessary Columns:**
+   - Remove features that are not relevant to the CLTV prediction task.
+
+4. **Detecting and Handling Outliers:**
+   - Identify anomalous data points using statistical methods.
+   - Apply transformations or filtering to mitigate their impact.
+
+5. **Feature Engineering:**
+   - Create new features that capture important customer behaviors.
+   - Normalize and scale numerical features for model compatibility.
+
+6. **Data Splitting:**
+   - Partition the data into training and testing sets for unbiased evaluation.
+
+7. **Data Resampling:**
+   - Resamples the data using Bootstrap Resampling method.
+
+8. **Model Training:**
+   - Train an XGBoost Regressor model wrapped within a Scikit-Learn pipeline.
+   - Utilize numeric preprocessors for optimal model performance.
+
+9. **Model Evaluation:**
+   - Assess the model using appropriate metrics like RMSE and R².
+
+To run the training pipeline:
 
 ```bash
 python run_pipeline.py
 ```
-As we run the python command we can see the model building process has started and different steps of the pipeline are being executed one after another from ingesting the data to feature engineering to spliting the data and then finally training the XGboost Regressor Model. 
 
-![Training Pipeline Overview](img/training_pipeline.png)
-*Figure 1: ZenML Training Pipeline Visualization*
+Once executed, the pipeline steps will be displayed in the ZenML dashboard:
 
-Now we can run our MLFlow Dashboard to check the trained model.
+![ZenML Training Pipeline](img/training_pipeline.png)
+
+> **Figure 1:** ZenML Training Pipeline Visualization
+
+To monitor the experiment details, start the MLflow dashboard:
+
+```bash
+mlflow ui
+```
 
 ![MLflow Dashboard](img/mlflow.png)
-*Figure 2: MLflow Experiment Tracking Dashboard*
+
+> **Figure 2:** MLflow Experiment Tracking Dashboard
+
+---
 
 ## Deployment
 
-Run the run_deployment.py file to deploy the latest model using MLflow model deployer step from zenml.
+To deploy the latest trained model using the MLflow model deployer, run the deployment pipeline:
 
 ```bash
 python run_deployment.py
 ```
 
-![Deployment Pipeline Overview](img/deployment.png)
-*Figure 2: Zenml Deployment Pipeline Visualization*
+This will initiate the deployment pipeline, as visualized below:
+
+![ZenML Deployment Pipeline](img/deployment_pipeline.png)
+
+> **Figure 3:** ZenML Deployment Pipeline Visualization
+
+---
 
 ## Prediction
 
-Using Flask we have build a UI to input data and Predict CLTV Value of a customer.
-Run the app.py to open the website.
+The project includes a Flask-based UI for predicting CLTV. Launch the Flask app:
 
 ```bash
 python app.py
 ```
+
+Input customer data through the UI to get predictions for their lifetime value.
+
+![Flask UI Example](img/Flask_ui.png)
+
+> **Figure 4:** Flask Application for CLTV Prediction
+
+---
+
+## Key Features
+
+- **End-to-End Automation:** From data preprocessing to model deployment.
+- **Experiment Tracking:** Comprehensive tracking of experiments with MLflow.
+- **Interactive Predictions:** User-friendly interface for real-time predictions.
+
+---
+
+For any issues or contributions, feel free to open an issue or submit a pull request. Thank you for exploring the **Customer Lifetime Value Prediction MLOps Project**!
+
+This project is licensed under the MIT License.

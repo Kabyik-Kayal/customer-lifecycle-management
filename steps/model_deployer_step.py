@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from zenml import step
 from mlflow import MlflowClient
+from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
 import logging
 
 
@@ -15,7 +16,7 @@ def model_fetcher() -> str:
     logging.info(f"Fetching latest version for model: {model_name}")
     
     # Set the MLflow tracking URI
-    os.environ['MLFLOW_TRACKING_URI'] = 'http://127.0.0.1:5000'
+    os.environ['MLFLOW_TRACKING_URI'] = get_tracking_uri()
     
     client = MlflowClient()
     
