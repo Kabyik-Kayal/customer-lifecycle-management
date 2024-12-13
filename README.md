@@ -8,7 +8,7 @@ This project implements a robust machine learning pipeline for predicting **Cust
 - **Experiment Tracking and Deployment:** Integrated **MLflow** for seamless experiment tracking and model deployment.
 - **User Interface:** Developed a Flask application for interactive CLTV predictions.
 
-![ZenML Logo](https://zenml.io/images/zenml_logo_dark.svg)
+![ZenML Logo](https://docs.zenml.io/~gitbook/image?url=https%3A%2F%2F2531819488-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FUoWo1UaWzv9Bv1r8FK4K%252Flogo%252FlJcwCPjg8WjTPiv5M5Q4%252FLayer%25202.png%3Falt%3Dmedia%26token%3Dcf0b16cf-8d91-40af-b0e9-6bf39d930095&width=192&dpr=1&quality=100&sign=ae327c8&sv=2)
 
 ---
 
