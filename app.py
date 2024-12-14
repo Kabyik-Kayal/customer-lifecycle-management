@@ -49,7 +49,7 @@ def predict():
         avg_order_value (float): The average value of an order.
         recency (int): The number of days since the last purchase.
         customer_age (int): The age of the customer.
-        lifetime (int): The lifetime of the customer in days.
+        lifetime (int): The time difference between 1st purchase and last purchase.
         purchase_frequency (float): The frequency of purchases over the customer's lifetime.
     Returns:
         Response: A rendered HTML template with the prediction result if successful.

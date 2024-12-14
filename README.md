@@ -1,7 +1,7 @@
 # Customer Lifetime Value Prediction MLOps Project
 
 ## Overview
-This project implements a robust machine learning pipeline for predicting **Customer Lifetime Value (CLTV)** using ZenML. The goal is to estimate the long-term value of customers during their journey with the organization. The pipeline employs an **XGBoost Regressor** model, leveraging data from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). Key features of the project include:
+This project implements a robust machine learning pipeline for predicting **Customer Lifetime Value (CLTV)** using ZenML. The goal is to estimate the long-term value of customers during their journey with the organization. The pipeline employs an **XGBoost Regressor** model, leveraging Online Retail dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail). Key features of the project include:
 
 - **Exploratory Data Analysis (EDA):** Conducted detailed EDA (available in the `data_analysis` folder), including feature selection and handling missing values.
 - **Pipeline Automation:** Designed a ZenML pipeline with modular steps for training and deployment.
@@ -11,6 +11,12 @@ This project implements a robust machine learning pipeline for predicting **Cust
 ![ZenML Logo](https://docs.zenml.io/~gitbook/image?url=https%3A%2F%2F2531819488-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FUoWo1UaWzv9Bv1r8FK4K%252Flogo%252FlJcwCPjg8WjTPiv5M5Q4%252FLayer%25202.png%3Falt%3Dmedia%26token%3Dcf0b16cf-8d91-40af-b0e9-6bf39d930095&width=192&dpr=1&quality=100&sign=ae327c8&sv=2)
 
 ---
+## *For Non-Developers*
+
+If you are not interested in the code and just want to use the model, Kindly click on the below link to use the model which is deployed on a Free-tier Render Server(It might work slow depending on the traffic)
+
+[Predict CLTV](https://customer-lifetime-value-prediction-mlops.onrender.com)
+
 
 ## Prerequisites
 
@@ -19,7 +25,7 @@ To get started, ensure you have the following installed:
 - **Python 3.10**
 - **ZenML**
 - **MLflow**
-
+- **Flask**
 ---
 
 ## Repository Structure
