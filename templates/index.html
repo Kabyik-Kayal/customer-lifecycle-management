@@ -57,25 +57,25 @@
 <body>
     <h1>Enter Customer Data for CLTV Prediction</h1>
     <form action="/predict" method="post">
-        <label for="frequency">Frequency:</label>
+        <label for="frequency">Total No. of Orders Till Date:</label>
         <input type="number" id="frequency" name="frequency" required><br>
         
-        <label for="total_amount">Total Amount:</label>
+        <label for="total_amount">Total Amount From Orders ($):</label>
         <input type="number" step="0.01" id="total_amount" name="total_amount" required><br>
         
-        <label for="avg_order_value">Avg Order Value:</label>
+        <label for="avg_order_value">Avg Value of Orders ($):</label>
         <input type="number" step="0.01" id="avg_order_value" name="avg_order_value" required><br>
         
-        <label for="recency">Recency:</label>
+        <label for="recency">No. of Days Since a Customer Made Their Most Recent Purchase:</label>
         <input type="number" id="recency" name="recency" required><br>
         
-        <label for="customer_age">Customer Age:</label>
+        <label for="customer_age">No. of Days Since The Customer is Associated to Your Company:</label>
         <input type="number" id="customer_age" name="customer_age" required><br>
         
-        <label for="lifetime">Lifetime:</label>
+        <label for="lifetime">No. of Days Customer has been Inactive:</label>
         <input type="number" id="lifetime" name="lifetime" required><br>
         
-        <label for="purchase_frequency">Purchase Frequency:</label>
+        <label for="purchase_frequency">Weekly Avg Purchase Frequency:</label>
         <input type="number" step="0.01" id="purchase_frequency" name="purchase_frequency" required><br>
         
         <button type="submit">Predict CLTV</button>
